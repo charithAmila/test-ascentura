@@ -6,6 +6,10 @@ use yii\widgets\ListView;
 use app\models\Tag;
 use yii\helpers\ArrayHelper;
 use yii\widgets\Pjax;
+use dosamigos\ckeditor\CKEditor;
+
+$this->registerJs("CKEDITOR.plugins.addExternal('pbckcode', '/pbckcode/plugin.js', '');");
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Post */
@@ -44,7 +48,21 @@ echo \kartik\widgets\Growl::widget([
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'note')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'live_demo')->textarea(['rows' => 2]) ?>
+    <?= $form->field($model, 'github_link')->textarea(['rows' => 2]) ?> 
+    <?= $form->field($model, 'note')->widget(CKEditor::className(), [
+		'options' => ['rows' => 3],
+        'preset' => 'custom',
+	]) ?>
+
+<?= $form->field($model, 'post')->widget(CKEditor::className(), [
+		'options' => ['rows' => 6],
+        'preset' => 'custom',
+	]); ?>
+
+<?= $form->field($model, 'status')->dropDownList(
+            [-1 => 'Un Publish', 1 => 'Bublish', ]
+    ); ?>
     <?php Pjax::begin(['id' => 'boxPajax']); ?>
     <?= $form->field($model, 'tags')->checkboxList(ArrayHelper::map(Tag::find()->orderBy(['id'=>SORT_DESC])->all(), 'id', 'name')); ?>
             <?php Pjax::end(); ?>

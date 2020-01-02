@@ -62,7 +62,7 @@ class PostSearch extends Post
             
         }  
         else {
-            $query = Post::find()->orderBy(['id'=>SORT_DESC]);
+            $query = Post::find()->where(['status'=>1])->orderBy(['id'=>SORT_DESC]);
         }
         
 

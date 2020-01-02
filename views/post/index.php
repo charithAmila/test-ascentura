@@ -41,13 +41,17 @@ echo \kartik\widgets\Growl::widget([
             ['class' => 'yii\grid\SerialColumn'],
 
             'title',
-            'note:ntext',
+            'live_demo',
+            'github_link',
+            'status',
+            
+            // 'note:ntext',
             'created_at',
             
-            [
-                'header'=>'Post By',
-                'value'=>'created0.username',
-            ],
+            // [
+            //     'header'=>'Post By',
+            //     'value'=>'created0.username',
+            // ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

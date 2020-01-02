@@ -40,8 +40,8 @@ class Post extends \yii\db\ActiveRecord
         return [
             [['title', 'note', 'created', 'created_at','tags'], 'required'],
             [['note'], 'string'],
-            [['created', 'updted'], 'integer'],
-            [['created_at', 'updated_at','tags'], 'safe'],
+            [['created', 'updted','status'], 'integer'],
+            [['post','created_at', 'updated_at','tags','live_demo','github_link'], 'safe'],
             [['title'], 'string', 'max' => 200],
         ];
     }

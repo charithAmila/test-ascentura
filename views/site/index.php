@@ -5,18 +5,18 @@ use app\models\Tag;
 
 <div class="row">
     <div class="col-sm-9">
-        <?php echo $this->render('/post/_search', ['model' => $searchModel]); ?>
+        <?php // echo $this->render('/post/_search', ['model' => $searchModel]); ?>
      <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
-            return "<a href='index.php?r=post/view&id=$model->id'><h3>$model->title</h3></a>".'</br>'.$model->note.'</br><a><small><span class="glyphicon glyphicon-user"> </span> Post By : '. $model->created0->username.' |
-            <span class="glyphicon glyphicon-time"> </span> Post Date :  '.$model->created_at.' |'.'</small></a>';
+            return "<a href='index.php?r=post/view&id=$model->id'><h3>$model->title</h3></a>".'</br>'.$model->note.'</br><a><small> 
+            <span class="glyphicon glyphicon-time"> </span> '.$model->created_at.'</small></a>';
         },
     ]) ?>       
     </div>
     <div class="col-sm-3">
-        <fieldset class="scheduler-border">
+        <!-- <fieldset class="scheduler-border">
                 <legend class="scheduler-border">SORT BY</legend>
                 <ul>
                     <?php
@@ -86,8 +86,8 @@ use app\models\Tag;
                     </li>
                 </ul>
                     
-        </fieldset>
-        <fieldset class="scheduler-border">
+        </fieldset> -->
+        <!-- <fieldset class="scheduler-border">
                 <legend class="scheduler-border">TAGS</legend>
                 <ul>
                     <?php 
@@ -98,7 +98,7 @@ use app\models\Tag;
                     </a>
                     <?php endforeach;  ?>
                 </ul>
-        </fieldset>
+        </fieldset> -->
     </div>
 </div>
 
